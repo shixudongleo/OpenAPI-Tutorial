@@ -24,6 +24,78 @@ produces:
   - application/json
 
 paths:
+    /talks:
+      get:
+        description: get list of talks 
+        responses:
+          200:
+            description: OK
+
+      post:
+        summary: register a talk
+        description: register a talk, speaker_id, title, date time, tags
+        parameters:
+          - name: presentation
+            in: body
+            description: the details of a talk
+            schema:
+              required: [speaker_id, title, datetime]
+              properties:
+                speaker_id: 
+                  type: integer
+                title:
+                  type: string
+                datetime:
+                  type: string
+                tags:
+                  type: array
+                  items:
+                    type: string
+
+        responses:
+          201:
+            description: Created the talk
+            schema:
+              required: [talk_id]
+              properties:
+                talk_id:
+                  type: integer
+
+    /speakers:
+      get:
+        description: get a list of speakers 
+        responses:
+          200:
+            description: OK
+
+      post:
+        summary: register a speaker
+        description: register a speakers, including the basic profile, name, country, phone
+        parameters:
+          - name: profile
+            in: body
+            description: the profile details of speaker
+            schema:
+              required: [first_name, last_name]
+              properties:
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                country:
+                  type: string
+                phone:
+                  type: string
+        
+        responses:
+          201:
+            description: Created speaker
+            schema:
+              required: [speaker_id]
+              properties:
+                speaker_id:
+                  type: integer
+   
     /pets:
       get:
         summary: Get a list of pets
