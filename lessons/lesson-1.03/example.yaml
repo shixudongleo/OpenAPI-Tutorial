@@ -31,3 +31,16 @@ paths:
         responses:
           200:
             description: OK
+
+    /speakers:
+      get:
+        description: get list of speakers 
+        responses:
+          '200':
+            description: OK
+    /talks:
+      get:
+        description: get list of talks
+        responses:
+          '200':
+            description: OK
