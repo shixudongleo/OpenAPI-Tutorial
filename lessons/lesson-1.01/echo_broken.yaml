@@ -21,7 +21,7 @@ paths:
       responses:
         200:
           description: Echo POST
-      parameters
+      parameters:
         - name: name
           in: formData
           description: name
@@ -30,14 +30,15 @@ paths:
           in: formData
           description: year
           type: string
+
   /test-path/{id}:
-    parameters:
-      - name: id
-        in: path
-        description: ID
-        type: string
-        required: true
     get:
       responses:
         200:
           description: Echo test-path
+      parameters:
+        - name: id
+          in: path
+          description: ID
+          type: string
+          required: true
